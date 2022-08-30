@@ -1,0 +1,16 @@
+## build
+
+docker build -t loci2path  --network=host .
+
+## Parameters
+input="/home/yagoubali/Projects/deployment/eqtl_LociToPath/input_loci2path.txt" 
+outdir="/media/yagoubali/bioinfo2/loci2path/scripts/docker_out"
+db="/media/yagoubali/bioinfo2/loci2path/GTEx_Analysis_v6p_eQTL/db_R"
+tissue="Adipose_Subcutaneous"
+
+
+
+docker run --rm --name testing -v ${db}:/db -v ${outdir}:/home/outdir -v ${input}:/home/input.txt \
+-it loci2path bash /app/scripts/script.sh  \
+/home/input.txt  /home/outdir Adipose_Subcutaneous
+
