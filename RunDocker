@@ -1,6 +1,6 @@
 ## build
 
-docker build -t loci2path  --network=host .
+docker build -t loci2path .
 
 ## Parameters
 input="/home/yagoubali/Projects/deployment/eqtl_LociToPath/input_loci2path.txt" 
@@ -8,9 +8,10 @@ outdir="/media/yagoubali/bioinfo2/loci2path/scripts/docker_out"
 db="/media/yagoubali/bioinfo2/loci2path/GTEx_Analysis_v6p_eQTL/db_R"
 tissue="Adipose_Subcutaneous"
 
+/run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/eqtl_LociToPath/input_loci2path.txt
+/run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/eqtl_LociToPath/output
+/run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/eqtl_LociToPath/db_R
 
 
-docker run --rm --name testing -v ${db}:/db -v ${outdir}:/home/outdir -v ${input}:/home/input.txt \
--it loci2path bash /app/scripts/script.sh  \
-/home/input.txt  /home/outdir Adipose_Subcutaneous
+docker run --rm --name testing -v /run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/eqtl_LociToPath/db_R:/db -v /run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/eqtl_LociToPath/output:/home/outdir -v /run/desktop/mnt/host/c/Users/daref/Documents/NodeBackend/eqtl_LociToPath/input_loci2path.txt:/home/input.txt -it loci2path bash /app/scripts/script.sh /home/input.txt  /home/outdir Adipose_Subcutaneous
 
